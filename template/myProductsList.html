@@ -1,0 +1,41 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>PRODUCT</th>
+            <th>SERIAL</th>
+            <th>USER</th>
+            <th>PROD</th>
+            <th>START</th>
+            <th>SAV1</th>
+            <th>SAV2</th>
+            <th>SAV3</th>
+            <th>SAV4</th>
+            <th>SAV5</th>
+            <th>INSERT</th>
+            <th>UPDATE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in data">
+            <td>{{product.production}}</td>
+            <td>{{product.serial}}</td>
+            <td>{{product.user}}</td>
+            <td>{{product.prod}}</td>
+            <td>{{product.start}}</td>
+            <td>{{product.sav1}}</td>
+            <td>{{product.sav2}}</td>
+            <td>{{product.sav3}}</td>
+            <td>{{product.sav4}}</td>
+            <td>{{product.sav5}}</td>
+            <td>{{product.i_date}}</td>
+            <td>{{product.u_date}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ul class="pagination" ng-hide="data.length==0">
+    <li class="{{base==1?'disabled':''}}"><a href="#/myProducts/{{(base-1)*5}}">&laquo;</a></li>
+    <li ng-repeat="i in pageArray" class="{{i==currentNum?'disabled':''}}"><a href="#/myProducts/{{i}}">{{i}}</a></li>
+    <li class="{{base*5>=totalPage?'disabled':''}}"><a href="#/myProducts/{{base*5+1}}">&raquo;</a></li>
+</ul>

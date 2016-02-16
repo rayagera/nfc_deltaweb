@@ -1,0 +1,31 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>VERSION</th>
+            <th>Platform</th>
+            <th>UPLOAD DATE</th>
+            <th>DOWNLOWD</th>
+            <th>Counter</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in data">
+            <td>{{product.id}}</td>
+            <td>{{product.version}}</td>
+            <td>{{product.platform}}</td>
+            <td>{{product.date}}</td>
+            <td>
+                <a class="btn btn-default" href="http://{{product.url}}" target="_blank">Download</a>
+            </td>
+            <td>{{product.counter}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ul class="pagination" ng-hide="data.length==0">
+    <li class="{{base==1?'disabled':''}}"><a href="#/apkManagment/{{(base-1)*5}}">&laquo;</a></li>
+    <li ng-repeat="i in pageArray" class="{{i==currentNum?'disabled':''}}"><a href="#/apkManagment/{{i}}">{{i}}</a></li>
+    <li class="{{base*5>=totalPage?'disabled':''}}"><a href="#/apkManagment/{{base*5+1}}">&raquo;</a></li>
+</ul>

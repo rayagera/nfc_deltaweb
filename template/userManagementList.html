@@ -1,0 +1,31 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>EMAIL</th>
+            <th>PASSWORD</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>LOGIN</th>
+            <th>COMPANY</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in data">
+            <td>{{user.id}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.login}}</td>
+            <td>{{user.company}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ul class="pagination" ng-hide="data.length==0">
+    <li class="{{base==1?'disabled':''}}"><a href="#/userManagement/{{(base-1)*5}}">&laquo;</a></li>
+    <li ng-repeat="i in pageArray" class="{{i==currentNum?'disabled':''}}"><a href="#/userManagement/{{i}}">{{i}}</a></li>
+    <li class="{{base*5>=totalPage?'disabled':''}}"><a href="#/userManagement/{{base*5+1}}">&raquo;</a></li>
+</ul>
